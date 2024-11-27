@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kitty Extension</title>
+    <style>
+      body {
+        width: 400px; /* Set the desired width */
+        height: 400px; /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Align items to the center */
+        margin: 0;
+        background: linear-gradient(to bottom, pink, purple);
+      }
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px; /* Add some space from the bottom */
+      }
+      button {
+        width: 100px;
+        height: 50px;
+        margin: 10px;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #playButton {
+        background-color: purple;
+      }
+      #feedButton {
+        background-color: pink;
+        color: black;
+      }
+      #catButton {
+        background: linear-gradient(to bottom, purple, pink);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-container">
+      <button id="playButton">Play</button>
+      <button id="feedButton">Feed</button>
+      <button id="catButton">Cat</button>
+    </div>
+    <script type="module" src="kitty.js"></script>
+    <script type="module" src="uwu.js"></script>
+  </body>
+</html>
