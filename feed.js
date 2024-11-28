@@ -2,6 +2,7 @@ import { myCat } from './catInstance.js';
 
 let img;
 let isDragging = false;
+let initialBurgerPosition = { top: '50%', left: '50%' };
 
 document.addEventListener('DOMContentLoaded', () => {
     document.body.style.height = '100vh';
@@ -16,12 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     img.src = myCat.current_gif;
     img.alt = 'Cat GIF';
     img.style.maxWidth = '35%'; // Enlarge the cat to 35%
-    img.style.maxHeight = '35%';
+    img.style.maxHeight = '35%'; 
     img.style.position = 'absolute';
     img.style.bottom = '0'; // Position at the bottom
     img.style.animation = 'moveSideToSide 10s infinite'; // Slow down the movement
-
-    // Append the img element to the body  
+   // Append the img element to the body
     document.body.appendChild(img);
 
     document.getElementById('backButton').addEventListener('click', () => {
@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Make the burger draggable
     const burger = document.getElementById('burger');
+    initialBurgerPosition = { top: burger.style.top, left: burger.style.left };
+
     burger.addEventListener('mousedown', (e) => {
         if (!isDragging) {
             isDragging = true;
@@ -76,6 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         myCat.changeExpressionToNormal();
                         updateCatGif();
                         img.style.animationPlayState = 'running';
+
+                        // Reset the burger to its original position
+                        burger.style.top = initialBurgerPosition.top;
+                        burger.style.left = initialBurgerPosition.left;
                     }, 3000);
                 }
             }
@@ -86,11 +92,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.addEventListener('mousemove', onMouseMove);
 
-            burger.addEventListener('mouseup', () => {
-                document.removeEventListener('mousemove', onMouseMove);
-                burger.style.cursor = 'grab';
-                isDragging = false;
-            });
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    burger.style.cursor = 'grab';
+                    isDragging = false;
+
+                    // Reset the burger to its original position if the mouse button is released
+                    burger.style.top = initialBurgerPosition.top;
+                    burger.style.left = initialBurgerPosition.left;
+                }
+            }, { once: true });
 
             burger.addEventListener('dragstart', () => false);
         } else {
@@ -100,6 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+setInterval(() => {
+    const randomNumber = Math.floor(Math.random() * 5) + 1; // Generate a random number between 1 and 5
+    if (randomNumber === 1) {
+        myCat.changeExpressionToNap();
+        updateCatGif();
+        img.style.animationPlayState = 'paused'; // Pause the animation
+
+        setTimeout(() => {
+            myCat.changeExpressionToNormal();
+            updateCatGif();
+            img.style.animationPlayState = 'running'; // Resume the animation
+        }, 3000);
+    }
+}, 15000); // 15 seconds
 
 export function updateCatGif() {
     if (img) {
