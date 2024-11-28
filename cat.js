@@ -3,7 +3,7 @@ export class Cat {
     constructor(cat_type) {
         this.cat_type = cat_type;
         this.typeindex = ["orange","white"];
-        this.holder_array = [["orange-cat.gif", "orange-cat-nap.gif", "sad.gif","cat-burger.gif"],["cat-pixel-cat.gif", "cute-cat.gif"]];
+        this.holder_array = [["orange-cat.gif", "orange-cat-nap.gif", "sad.gif","cat-burger.gif","orange-love.gif"],["cute-cat.gif","cat-pixel-cat.gif"]];
         this.current_gif = "none";
         this.changeExpressionToNormal();
     }
@@ -31,6 +31,11 @@ export class Cat {
     changeExpressionToEat() {
         if (this.cat_type === "orange") {
             this.current_gif = this.holder_array[this.typeindex.indexOf(this.cat_type)][3];
+        }
+    }
+    changeExpressionToLove(){
+        if (this.cat_type=== "orange"){
+            this.current_gif = this.holder_array[this.typeindex.indexOf(this.cat_type)][4];
         }
     }
     changeCatType() {

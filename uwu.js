@@ -1,4 +1,5 @@
 import { myCat } from './catInstance.js';
+import { updateCatGif } from './kitty.js';
 
 document.getElementById('playButton').addEventListener('click', () => {
     console.log('Play button clicked!');
@@ -13,4 +14,5 @@ document.getElementById('feedButton').addEventListener('click', () => {
 document.getElementById('catButton').addEventListener('click', () => {
     console.log('Cat button clicked!');
     myCat.changeCatType();
+    updateCatGif();
 });

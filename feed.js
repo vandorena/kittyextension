@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.body.style.background = "url('kitchen.gif')";
     document.body.style.backgroundSize = "cover";
+
+    document.getElementById('backButton').addEventListener('click', () => {
+        window.location.href = 'uwu.html';
+    });
 });
+
 //str r2, .ClockISR
 //mov r3, #1000
 //str r3, .ClockInterruptFrequency
@@ -13,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //tick_isr:
 //add r12, r12, #1
 //rfe
-
+// 400x231 for living room
 //mov r10,#300
 
 //mov r0, #123

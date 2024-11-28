@@ -7,7 +7,8 @@
         width: 429px; /* Set the desired width */
         height: 245px; /* Set the desired height */
         margin: 0;
-        background: linear-gradient(bottom, pink, purple);
+        background: linear-gradient(to bottom, pink, purple);
+        position: relative; /* Ensure the back button is positioned relative to the body */
       }
       #kitchen {
         width: 100%;
@@ -16,9 +17,20 @@
         background-size: cover;
         background-position: center;
       }
+      #backButton {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+      }
     </style>
   </head>
   <body>
+    <button id="backButton">&#x2190;</button> <!-- Back button with arrowhead -->
     <div id="kitchen"></div>
     <script src="feed.js"></script>
   </body>
