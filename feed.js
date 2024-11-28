@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     img.style.bottom = '0'; // Position at the bottom
     img.style.animation = 'moveSideToSide 10s infinite'; // Slow down the movement
 
-    // Append the img element to the body
+    // Append the img element to the body  
     document.body.appendChild(img);
 
     document.getElementById('backButton').addEventListener('click', () => {
