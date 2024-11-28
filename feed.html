@@ -9,6 +9,7 @@
         margin: 0;
         background: linear-gradient(to bottom, pink, purple);
         position: relative; /* Ensure the back button is positioned relative to the body */
+        overflow: hidden; /* Prevent the image from overflowing */
       }
       #kitchen {
         width: 100%;
@@ -27,11 +28,39 @@
         font-size: 24px;
         color: white;
       }
+      @keyframes moveSideToSide {
+        0% {
+    right: 0%;
+  }
+  48% {
+    transform: rotateY(0deg); 
+  }
+  50% { 
+    right: calc(100% - 100px);
+    transform: rotateY(180deg); 
+  }
+  98% {
+    transform: rotateY(180deg); 
+  }
+  100% {
+    right: 0;    
+     transform: rotateY(0deg);
+  }}
+  #burger {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: grab;
+        width: 10%;
+        height: auto;
+      }
     </style>
   </head>
   <body>
     <button id="backButton">&#x2190;</button> <!-- Back button with arrowhead -->
     <div id="kitchen"></div>
-    <script src="feed.js"></script>
+    <img id="burger" src="hamburber.png" alt="Burger"> <!-- Draggable burger -->
+    <script type="module" src="feed.js"></script>
   </body>
 </html>
