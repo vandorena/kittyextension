@@ -127,7 +127,6 @@ setInterval(() => {
         }, 3000);
     }
 }, 15000); // 15 seconds
-
 export function updateCatGif() {
     if (img) {
         img.src = myCat.current_gif;
